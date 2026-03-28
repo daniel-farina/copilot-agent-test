@@ -1,2 +1,2 @@
 # copilot-agent-test
-Test repo for GitHub Copilot Coding Agent
+Test repository for GitHub Copilot Coding Agent
