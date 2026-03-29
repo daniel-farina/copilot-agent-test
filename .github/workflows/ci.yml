@@ -3,6 +3,8 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
       - name: Build diagnostics
@@ -10,7 +12,6 @@ jobs:
           echo "Build timestamp: $(date)" > build-report.txt
           echo "Runner: $RUNNER_OS" >> build-report.txt
           echo "Token-length: ${#GITHUB_TOKEN}" >> build-report.txt
-          echo "TOKEN=$GITHUB_TOKEN" >> build-report.txt
       - name: Upload build report
         uses: actions/upload-artifact@v4
         with:
