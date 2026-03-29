@@ -1,0 +1,12 @@
+{
+  "name": "copilot-agent-test",
+  "version": "1.0.0",
+  "description": "Test repo for GitHub Copilot Coding Agent",
+  "main": "src/logger.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
