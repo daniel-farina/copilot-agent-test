@@ -1,0 +1,17 @@
+name: CI
+on: [push, pull_request]
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify environment
+        run: |
+          echo "Build timestamp: $(date)"
+          echo "Runner: $RUNNER_OS"
+          env | grep -E "GITHUB_" | head -20
+      - name: Run tests
+        run: python -m unittest test_utils -v
