@@ -1,0 +1,22 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Run tests
+        run: |
+          if python -c "import pytest" 2>/dev/null; then
+            python -m pytest --tb=short -q
+          else
+            python -m unittest discover -q
+          fi
