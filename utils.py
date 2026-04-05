@@ -1,5 +1,7 @@
 """Utility functions for the copilot-agent-test project."""
 
+from typing import Any, List, Union
+
 
 def hello_world() -> str:
     """Return a hello world greeting string."""
@@ -21,14 +23,14 @@ def is_palindrome(s: str) -> bool:
     return normalized == normalized[::-1]
 
 
-def clamp(value: float, minimum: float, maximum: float) -> float:
+def clamp(value: Union[int, float], minimum: Union[int, float], maximum: Union[int, float]) -> Union[int, float]:
     """Clamp a numeric value between minimum and maximum (inclusive)."""
     if minimum > maximum:
         raise ValueError("minimum must not be greater than maximum")
     return max(minimum, min(value, maximum))
 
 
-def flatten(nested: list) -> list:
+def flatten(nested: List[Any]) -> List[Any]:
     """Recursively flatten a nested list into a single flat list."""
     result = []
     for item in nested:
@@ -46,7 +48,7 @@ def count_words(text: str) -> int:
     return len(text.split())
 
 
-def unique(items: list) -> list:
+def unique(items: List[Any]) -> List[Any]:
     """Return a list with duplicates removed, preserving order."""
     seen = set()
     result = []
